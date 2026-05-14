@@ -1,27 +1,70 @@
+{% from "components/skip-link/macro.njk" import govukSkipLink %}
+{% from "components/header/macro.njk" import govukHeader %}
+{% from "components/footer/macro.njk" import govukFooter %}
+
 <!DOCTYPE html>
-<html lang="en" class="govuk-template">
+<html lang="en" class="govuk-template govuk-template--rebranded">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
   <title>{% block title %}HMCTS Task Manager{% endblock %}</title>
+  <link rel="icon" sizes="48x48" href="/assets/rebrand/images/favicon.ico">
+  <link rel="icon" sizes="any" href="/assets/rebrand/images/favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="/assets/rebrand/images/govuk-icon-mask.svg" color="#1d70b8">
+  <link rel="apple-touch-icon" href="/assets/rebrand/images/govuk-icon-180.png">
   <link rel="stylesheet" href="/govuk/govuk-frontend.min.css">
+  <style>
+    body.govuk-template__body {
+      min-height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .govuk-main-content {
+      flex: 1;
+      max-width: 100% !important;
+      margin-left: 315px !important;
+      margin-right: 0 !important;
+    }
+    .govuk-main-wrapper { max-width: 100% !important; }
+    .govuk-footer { margin-bottom: 0 !important; }
+
+    .govuk-header__container {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 6px !important;
+      padding-top: 50px !important;
+      padding-bottom: 50px !important;
+    }
+
+    .govuk-header__content {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      border-left: none !important;
+    }
+
+
+  </style>
 </head>
 <body class="govuk-template__body">
-  <header class="govuk-header" role="banner">
-    <div class="govuk-header__container govuk-width-container">
-      <div class="govuk-header__content">
-        <a href="/tasks" class="govuk-header__link govuk-header__service-name">
-          HMCTS Task Manager
-        </a>
-      </div>
-    </div>
-  </header>
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
-  <div class="govuk-width-container">
+  {{ govukSkipLink({ href: '#main-content', text: 'Skip to main content' }) }}
+
+  {{ govukHeader({
+    rebrand: true,
+    homepageUrl: '/',
+    serviceName: 'HMCTS Task Manager',
+    serviceUrl: '/tasks'
+  }) }}
+
+  <div class="govuk-width-container govuk-main-content">
     <main class="govuk-main-wrapper" id="main-content">
       {% block content %}{% endblock %}
     </main>
   </div>
+
+  {{ govukFooter({ rebrand: false }) }}
 
   <script type="module" src="/govuk/govuk-frontend.min.js"></script>
   <script type="module">

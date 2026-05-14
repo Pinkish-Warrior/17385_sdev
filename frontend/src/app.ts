@@ -14,11 +14,17 @@ app.use(express.json())
 app.use('/govuk', express.static(path.join(__dirname, '../node_modules/govuk-frontend/dist/govuk')))
 app.use('/assets', express.static(path.join(__dirname, '../node_modules/govuk-frontend/dist/govuk/assets')))
 
-nunjucks.configure(path.join(__dirname, 'views'), {
+const njkEnv = nunjucks.configure([
+  path.join(__dirname, 'views'),
+  path.join(__dirname, '../node_modules/govuk-frontend/dist/govuk'),
+], {
   autoescape: true,
   express: app,
   watch: process.env.NODE_ENV === 'development',
 })
+
+// Enables the 2025 GOV.UK rebrand (blue header, Royal Cypher)
+njkEnv.addGlobal('govukRebrand', true)
 
 app.set('view engine', 'html')
 
