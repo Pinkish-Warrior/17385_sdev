@@ -10,4 +10,4 @@ RUN npm run build
 
 EXPOSE 3100
 
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/src/server.js"]

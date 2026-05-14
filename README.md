@@ -14,7 +14,7 @@ A monorepo containing both the backend API and frontend application for managing
 
 | Layer      | Technology                        |
 |------------|-----------------------------------|
-| Backend    | Python 3.12 + FastAPI             |
+| Backend    | Python 3.13 + FastAPI             |
 | Database   | PostgreSQL + SQLAlchemy + Alembic |
 | Frontend   | TypeScript + Express + Nunjucks   |
 | UI         | GOV.UK Frontend                   |
@@ -57,7 +57,7 @@ The backend and frontend remain independently runnable — each has its own `REA
 ### Prerequisites
 
 - Podman + podman-compose (preferred) or Docker + Docker Compose
-- (Optional for local dev) Python 3.12+ and Node.js 20+
+- (Optional for local dev) Python 3.13+ and Node.js 20+
 
 > **Container runtime preference:** This project uses [Podman](https://podman.io/) over Docker.
 > Podman is daemonless and **rootless** by default — containers run without root privileges, eliminating the risk of a container process escalating to root on the host. This is a fundamentally stronger security posture than Docker's daemon model, which requires a root-owned daemon running at all times.
