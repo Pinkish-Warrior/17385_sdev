@@ -106,12 +106,12 @@
 
 ## Polish & Submission
 
-- [ ] Backend `README.md` — setup, run, test, env vars
-- [ ] Frontend `README.md` — setup, run, test, env vars
-- [ ] Root `README.md` final review
-- [ ] `.env.example` verified for both services
-- [ ] All tests passing
-- [ ] Swagger UI verified end-to-end
-- [ ] Manual UI walkthrough (create → view → update → delete)
-- [ ] Push to GitHub
+- [x] Backend `README.md` — setup, run, test, env vars
+- [x] Frontend `README.md` — setup, run, test, env vars
+- [x] Root `README.md` final review
+- [x] `.env.example` verified for both services
+- [x] All tests passing
+- [x] Swagger UI verified end-to-end
+- [x] Manual UI walkthrough (create → view → update → delete)
+- [ ] Push to GitHub — final merge to `main`
 - [ ] Share repository link
