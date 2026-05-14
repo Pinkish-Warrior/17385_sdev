@@ -58,7 +58,7 @@
 - [x] Integration: `DELETE /tasks/{id}` — not found (404)
 
 ### Docs
-- [ ] Verify Swagger UI renders at `/docs`
+- [x] Verify Swagger UI renders at `/docs`
 - [ ] Verify ReDoc renders at `/redoc`
 
 ---
