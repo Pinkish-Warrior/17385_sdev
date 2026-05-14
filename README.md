@@ -104,9 +104,10 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/):
 
 | Document | Description |
 |---|---|
-| [`PLANNING.md`](./PLANNING.md) | Full implementation plan, phases, and repo structure |
-| [`STACK.md`](./STACK.md) | Stack decision rationale and comparison against alternatives |
-| [`WORKFLOW.md`](./WORKFLOW.md) | Mermaid diagrams — architecture, API flow, user journey, testing |
+| [`docs/PLANNING.md`](./docs/PLANNING.md) | Full implementation plan, phases, and repo structure |
+| [`docs/STACK.md`](./docs/STACK.md) | Stack decision rationale and comparison against alternatives |
+| [`docs/WORKFLOW.md`](./docs/WORKFLOW.md) | Mermaid diagrams — architecture, API flow, user journey, testing |
+| [`docs/CHALLENGE.md`](./docs/CHALLENGE.md) | Original DTS Developer Technical Test brief |
 
 ---
 
