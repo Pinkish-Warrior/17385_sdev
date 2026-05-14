@@ -44,18 +44,18 @@
 - [x] Consistent error response shape
 
 ### Tests
-- [ ] Unit: `TaskCreate` schema — valid inputs
-- [ ] Unit: `TaskCreate` schema — invalid inputs (missing title, past due date, no timezone)
-- [ ] Unit: `TaskUpdate` schema — valid and invalid status values
-- [ ] Integration: `POST /tasks` — happy path
-- [ ] Integration: `POST /tasks` — validation error (422)
-- [ ] Integration: `GET /tasks` — returns list
-- [ ] Integration: `GET /tasks/{id}` — happy path
-- [ ] Integration: `GET /tasks/{id}` — not found (404)
-- [ ] Integration: `PATCH /tasks/{id}` — status update
-- [ ] Integration: `PATCH /tasks/{id}` — not found (404)
-- [ ] Integration: `DELETE /tasks/{id}` — happy path
-- [ ] Integration: `DELETE /tasks/{id}` — not found (404)
+- [x] Unit: `TaskCreate` schema — valid inputs
+- [x] Unit: `TaskCreate` schema — invalid inputs (missing title, past due date, no timezone)
+- [x] Unit: `TaskUpdate` schema — valid and invalid status values
+- [x] Integration: `POST /tasks` — happy path
+- [x] Integration: `POST /tasks` — validation error (422)
+- [x] Integration: `GET /tasks` — returns list
+- [x] Integration: `GET /tasks/{id}` — happy path
+- [x] Integration: `GET /tasks/{id}` — not found (404)
+- [x] Integration: `PATCH /tasks/{id}` — status update
+- [x] Integration: `PATCH /tasks/{id}` — not found (404)
+- [x] Integration: `DELETE /tasks/{id}` — happy path
+- [x] Integration: `DELETE /tasks/{id}` — not found (404)
 
 ### Docs
 - [ ] Verify Swagger UI renders at `/docs`

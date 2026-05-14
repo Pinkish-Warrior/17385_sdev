@@ -29,5 +29,5 @@ Thumbs.db
 .idea/
 *.swp
 
-# Docs
-docs/
+# Personal documents — excluded from version control
+docs/statments/
