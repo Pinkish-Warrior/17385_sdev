@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}HMCTS Task Manager{% endblock %}</title>
+  <link rel="stylesheet" href="/govuk/govuk-frontend.min.css">
+</head>
+<body class="govuk-template__body">
+  <header class="govuk-header" role="banner">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__content">
+        <a href="/tasks" class="govuk-header__link govuk-header__service-name">
+          HMCTS Task Manager
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper" id="main-content">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <script type="module" src="/govuk/govuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/govuk/govuk-frontend.min.js'
+    initAll()
+  </script>
+</body>
+</html>

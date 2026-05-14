@@ -16,6 +16,9 @@ build/
 *.js.map
 .next/
 
+# Test artefacts
+*.db
+
 # Env
 .env
 *.env.local
