@@ -16,6 +16,10 @@ build/
 *.js.map
 .next/
 
+# Test artefacts
+*.db
+coverage/
+
 # Env
 .env
 *.env.local
@@ -28,3 +32,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# Personal documents — excluded from version control
+docs/statments/
