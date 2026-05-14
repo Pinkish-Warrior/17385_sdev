@@ -88,19 +88,19 @@
 - [ ] 500 page
 
 ### Tests
-- [ ] Compile gate: `tsc --noEmit`
-- [ ] Unit: route handlers (mock fetch to backend)
-- [ ] Smoke: task list page renders
-- [ ] Smoke: create form renders
-- [ ] Smoke: detail page renders
+- [x] Compile gate: `tsc --noEmit`
+- [x] Unit: route handlers (mock fetch to backend)
+- [x] Smoke: task list page renders
+- [x] Smoke: create form renders
+- [x] Smoke: detail page renders
 
 ---
 
 ## Infrastructure
 
-- [ ] `docker-compose.yml` / `podman-compose.yml` — PostgreSQL + backend + frontend
-- [ ] Backend `Dockerfile`
-- [ ] Frontend `Dockerfile`
+- [x] `docker-compose.yml` / `podman-compose.yml` — PostgreSQL + backend + frontend
+- [x] Backend `Dockerfile`
+- [x] Frontend `Dockerfile`
 
 ---
 
