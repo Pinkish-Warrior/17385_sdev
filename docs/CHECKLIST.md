@@ -31,17 +31,17 @@
 - [x] `TaskResponse` Pydantic schema with `from_attributes`
 
 ### CRUD Endpoints
-- [ ] `POST /tasks` — create a task
-- [ ] `GET /tasks` — retrieve all tasks
-- [ ] `GET /tasks/{id}` — retrieve task by ID
-- [ ] `PATCH /tasks/{id}` — update task status
-- [ ] `DELETE /tasks/{id}` — delete a task
-- [ ] `GET /health` — health check
+- [x] `POST /tasks` — create a task
+- [x] `GET /tasks` — retrieve all tasks
+- [x] `GET /tasks/{id}` — retrieve task by ID
+- [x] `PATCH /tasks/{id}` — update task status
+- [x] `DELETE /tasks/{id}` — delete a task
+- [x] `GET /health` — health check
 
 ### Validation & Error Handling
-- [ ] Global exception handler for unexpected DB errors (500)
-- [ ] 404 handler for missing tasks
-- [ ] Consistent error response shape
+- [x] Global exception handler for unexpected DB errors (500)
+- [x] 404 handler for missing tasks
+- [x] Consistent error response shape
 
 ### Tests
 - [ ] Unit: `TaskCreate` schema — valid inputs
