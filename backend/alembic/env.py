@@ -2,14 +2,16 @@ import os
 from logging.config import fileConfig
 
 from alembic import context
+from dotenv import load_dotenv
 from sqlalchemy import engine_from_config, pool
 
 from app.database import Base
 from app.models import Task  # noqa: F401 — ensures the model is registered on Base.metadata
 
-config = context.config
+# Load .env so DATABASE_URL is available when running alembic outside of the app
+load_dotenv()
 
-# Read DATABASE_URL from environment so alembic.ini doesn't hardcode credentials
+config = context.config
 config.set_main_option("DATABASE_URL", os.environ["DATABASE_URL"])
 
 if config.config_file_name is not None:

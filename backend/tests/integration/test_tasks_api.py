@@ -1,8 +1,10 @@
 from datetime import datetime, timedelta, timezone
+from unittest.mock import MagicMock, patch
 
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 
 from app.database import Base, get_db
@@ -139,3 +141,15 @@ class TestHealth:
         response = client.get("/health")
         assert response.status_code == 200
         assert response.json() == {"status": "ok"}
+
+
+class TestExceptionHandler:
+    def test_sqlalchemy_error_returns_500(self, client):
+        def broken_db():
+            raise SQLAlchemyError("simulated DB failure")
+
+        app.dependency_overrides[get_db] = broken_db
+        response = client.get("/tasks")
+        app.dependency_overrides[get_db] = override_get_db
+        assert response.status_code == 500
+        assert "database error" in response.json()["detail"].lower()
