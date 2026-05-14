@@ -46,7 +46,7 @@ def future_date(days: int = 1) -> str:
 
 
 def create_task_payload(**kwargs) -> dict:
-    return {"title": "Test task", "due_date": future_date(), **kwargs}
+    return {"title": "Test task", "description": "Test description", "due_date": future_date(), **kwargs}
 
 
 class TestCreateTask:

@@ -12,10 +12,10 @@ def future_date(days: int = 1) -> datetime:
 
 class TestTaskCreate:
     def test_valid_minimal(self):
-        task = TaskCreate(title="Review case file", due_date=future_date())
+        task = TaskCreate(title="Review case file", description="Case notes", due_date=future_date())
         assert task.title == "Review case file"
         assert task.status == TaskStatus.pending
-        assert task.description is None
+        assert task.description == "Case notes"
 
     def test_valid_full(self):
         task = TaskCreate(
