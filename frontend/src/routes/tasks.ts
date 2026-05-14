@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import { Task, TaskStatus } from '../types/task'
+import { Task, TaskStatus, ApiError } from '../types/task'
 
 const router = Router()
 const API = process.env.BACKEND_API_URL || 'http://localhost:8000'
@@ -7,7 +7,7 @@ const API = process.env.BACKEND_API_URL || 'http://localhost:8000'
 router.get('/', async (_req: Request, res: Response) => {
   try {
     const response = await fetch(`${API}/tasks`)
-    const tasks: Task[] = await response.json()
+    const tasks = await response.json() as Task[]
     res.render('tasks/list.html', { tasks })
   } catch {
     res.render('tasks/list.html', { tasks: [], error: 'Could not load tasks.' })
@@ -20,13 +20,15 @@ router.get('/new', (_req: Request, res: Response) => {
 
 router.post('/', async (req: Request, res: Response) => {
   const { title, description, status, due_date } = req.body
+  // datetime-local inputs omit timezone — append Z to treat as UTC
+  const due_date_utc = due_date ? `${due_date}:00Z` : due_date
   const response = await fetch(`${API}/tasks`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title, description, status, due_date }),
+    body: JSON.stringify({ title, description, status, due_date: due_date_utc }),
   })
   if (response.ok) return res.redirect('/tasks')
-  const error = await response.json()
+  const error = await response.json() as ApiError
   res.status(response.status).render('tasks/new.html', { errors: error.detail, values: req.body })
 })
 
@@ -34,7 +36,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   try {
     const response = await fetch(`${API}/tasks/${req.params.id}`)
     if (response.status === 404) return res.status(404).render('errors/404.html')
-    const task: Task = await response.json()
+    const task = await response.json() as Task
     res.render('tasks/detail.html', { task, errors: null })
   } catch {
     res.status(500).render('errors/500.html')
@@ -49,8 +51,8 @@ router.post('/:id', async (req: Request, res: Response) => {
     body: JSON.stringify({ status: status as TaskStatus }),
   })
   if (response.ok) return res.redirect('/tasks')
-  const task = await fetch(`${API}/tasks/${req.params.id}`).then(r => r.json())
-  const error = await response.json()
+  const task = await fetch(`${API}/tasks/${req.params.id}`).then(r => r.json()) as Task
+  const error = await response.json() as ApiError
   res.status(response.status).render('tasks/detail.html', { task, errors: error.detail })
 })
 
