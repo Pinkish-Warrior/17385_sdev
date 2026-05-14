@@ -59,7 +59,7 @@
 
 ### Docs
 - [x] Verify Swagger UI renders at `/docs`
-- [ ] Verify ReDoc renders at `/redoc`
+- [x] Verify ReDoc renders at `/redoc`
 
 ---
 
