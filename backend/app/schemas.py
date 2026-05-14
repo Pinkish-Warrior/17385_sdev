@@ -13,7 +13,7 @@ class TaskStatus(str, Enum):
 
 class TaskCreate(BaseModel):
     title: str = Field(..., min_length=1, max_length=200)
-    description: str | None = None
+    description: str = Field(..., min_length=1)
     status: TaskStatus = TaskStatus.pending
     due_date: datetime
 

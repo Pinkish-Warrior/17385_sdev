@@ -84,7 +84,7 @@ describe('POST /tasks', () => {
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 422,
-      json: async () => ({ detail: [{ msg: 'due_date must be in the future' }] }),
+      json: async () => ({ detail: [{ loc: ['body', 'due_date'], msg: 'due_date must be in the future', type: 'value_error' }] }),
     })
     const res = await request(app)
       .post('/tasks')
@@ -160,7 +160,7 @@ describe('POST /tasks/:id — error state', () => {
       .mockResolvedValueOnce({
         ok: false,
         status: 422,
-        json: async () => ({ detail: [{ msg: 'Invalid status' }] }),
+        json: async () => ({ detail: [{ loc: ['body', 'status'], msg: 'not a valid enum value', type: 'enum' }] }),
       })
       .mockResolvedValueOnce({
         ok: true,
